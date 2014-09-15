@@ -1,0 +1,8 @@
+{
+    "name": "message-wall",
+    "version": "0.0.1",
+    "description": "Just it",
+    "dependencies": {
+        "mongojs": "~0.14.1"
+    }
+}
