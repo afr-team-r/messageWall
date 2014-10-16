@@ -1,5 +1,8 @@
 var fs = require("fs");
-var db = require("./dao").db;
+//var db = require("./dao").db;
+
+var messages = {};
+    messages.values = [];
 
 var deliverStaticResources = function(req, res, path) {
     
@@ -43,7 +46,8 @@ var handleServices = function(req, res, path) {
             req.on("end", function() {
                 
                 try {
-                    db.message.save(JSON.parse(item));
+                    //db.message.save(JSON.parse(item));
+                    messages.values.push(JSON.parse(item));
                 } catch(err) {
                     console.log("Invalid JSON object");
                     res.end("Invalid JSON object");
@@ -55,13 +59,15 @@ var handleServices = function(req, res, path) {
         break;
             
         case '/all':
-            db.message.find(function(err, data) {
-                data.forEach(function(obj) {
+            //db.message.find(function(err, data) {
+             /*   messages.forEach(function(obj) {
                     res.write(obj.author + ": " + obj.text + '\n');
-                });
+                }); */
+            
+            res.write(JSON.stringify(messages));            
                 
                 res.end();
-            });
+           // });
         break;    
             
         default:

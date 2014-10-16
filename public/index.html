@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="messageWall">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mural de Mensagens</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body>
+    <link href="css/style.css" rel="stylesheet">
       
-    <h1>.</h1>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+      
+  </head>
+  <body ng-controller="messageController">
+      
+      <div class="col-xs-4">
+      
+          <h3>Tasks</h3>
+          
+          <div ng-repeat="task in tasks">
+              <div class="taskItem">{{task.author}}: {{task.text}}</div>
+          </div>
+          
+      </div>
+      
+     <div class="col-xs-4">
+      
+         Autor: <input type="text" ng-model="task.author" ></input>
+          Texto: <input type="text" ng-model="task.text" ></input>
+    
+          <br/>
+    
+          <input type="button" value="Insert task" ng-click="addTask()" />
+      
+      </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

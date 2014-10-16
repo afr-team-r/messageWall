@@ -1,0 +1,10 @@
+.taskItem {
+    
+    color: green;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.taskItem:hover {
+    color: blue;
+}
